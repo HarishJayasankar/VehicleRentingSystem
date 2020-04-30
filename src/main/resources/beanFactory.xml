@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+    <context:component-scan base-package="com.concordia.soen.sdm.controller"/>
+    <context:annotation-config />
+  
+
+    <bean id="transactionAvailabilityCheck" class="com.concordia.soen.sdm.service.TransactionAvailabilityCheckService" />
+    <bean id="clientManagementMapper" class="com.concordia.soen.sdm.mapper.ClientManagementMapper"/>
+    <bean id="clientTableDataGateway" class="com.concordia.soen.sdm.tableDataGateway.ClientTableDataGateway"/>
+    <bean id="TransactionHistoryMapper" class="com.concordia.soen.sdm.mapper.TransactionHistoryMapper"/>
+    <bean id="TransactionHistoryTableDataGateway" class="com.concordia.soen.sdm.tableDataGateway.TransactionHistoryTableDataGateway"/>
+    <bean id="CancelReturnMapper" class="com.concordia.soen.sdm.mapper.CancelReturnMapper"/>
+    <bean id="CancelReturnTableDataGateway" class="com.concordia.soen.sdm.tableDataGateway.CancelReturnTableDataGateway"/>
+    <bean id="clerkCatalogMapper" class="com.concordia.soen.sdm.mapper.ClerkCatalogMapper"/>
+    <bean id="clerkCatalogTableDataGateway" class="com.concordia.soen.sdm.tableDataGateway.ClerkCatalogTableDataGateway"/>
+    <bean id="adminCatalogMapper" class="com.concordia.soen.sdm.mapper.AdminCatalogMapper"/>
+    <bean id="adminCatalogTableDataGateway" class="com.concordia.soen.sdm.tableDataGateway.AdminCatalogTableDataGateway"/>
+     <bean id="vehicleRecordMapper" class="com.concordia.soen.sdm.mapper.VehicleRecordMapper"/>
+    <bean id="vehicleRecordTableDataGateway" class="com.concordia.soen.sdm.tableDataGateway.VehicleRecordTableDataGateway"/>
+    
+    <bean id="vehicleReservationMapper" class="com.concordia.soen.sdm.mapper.VehicleReservationMapper"/>
+    <bean id="vehicleReservationTableDataGateway" class="com.concordia.soen.sdm.tableDataGateway.VehicleReservationTableDataGateway"/>
+    <bean id="loginMapper" class="com.concordia.soen.sdm.mapper.LoginMapper"/>
+    <bean id="loginTableDataGateway" class="com.concordia.soen.sdm.tableDataGateway.LoginTableDataGateway"/>
+  
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="datasource" />
+    </bean>
+    <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://database-2.cqla4lwsk63v.us-east-1.rds.amazonaws.com:3306/VehicleRentingSystem" />
+        <property name="username" value="HarishJayasankar" />
+        <property name="password" value="Harish2810" />
+    </bean>
+</beans>
